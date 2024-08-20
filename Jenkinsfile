@@ -39,7 +39,7 @@ pipeline {
 
     stage ('pushing the new image to Docker Hub') {
       environment {
-        DOCKER_IMAGE = "abhishekf5/ultimate-cicd:${BUILD_NUMBER}"
+        DOCKER_IMAGE = "siddharthmuruganandham/jenkins-springjava:${BUILD_NUMBER}"
         REGISTRY_CREDENTIALS = credentials('docker-pass')
       }
       steps {

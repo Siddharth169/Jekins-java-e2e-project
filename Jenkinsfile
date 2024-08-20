@@ -10,7 +10,7 @@ pipeline {
     stage ('checkout') {
       steps {
         sh 'echo "Cloning the repo"'
-        git branch: 'main', url: 'https://github.com/iam-veeramalla/Jenkins-Zero-To-Hero.git'
+        git branch: 'main', url: 'https://github.com/Siddharth169/CI-Jenkins-CD-Argocd.git'
       }
     }
     

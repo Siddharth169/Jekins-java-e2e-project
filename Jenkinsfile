@@ -21,7 +21,7 @@ pipeline {
 
     stage ('code quality') {
       environment {
-        sonar_host = "http://127.0.0.0:9000"
+        sonar_host = "http://52.90.112.179/:9000"
       }
       steps {
         withCredentials([string(credentialsId: 'sonar', variable: 'SONAR_AUTH_TOKEN')]) {

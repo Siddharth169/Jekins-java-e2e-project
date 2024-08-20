@@ -40,13 +40,12 @@ pipeline {
     stage ('pushing the new image to Docker Hub') {
       environment {
         DOCKER_IMAGE = "siddharthmuruganandham/jenkins-springjava:${BUILD_NUMBER}"
-        REGISTRY_CREDENTIALS = credentials('docker-pass')
       }
       steps {
         script {
           sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && docker build -t ${DOCKER_IMAGE} .'
           def dockerImage = docker.image("${DOCKER_IMAGE}")
-          docker.withRegistry('https://index.docker.io/v1/', REGISTRY_CREDENTIALS) {
+          docker.withRegistry('https://index.docker.io/v1/', 'docker-pass') {
             dockerImage.push()
           }
         }

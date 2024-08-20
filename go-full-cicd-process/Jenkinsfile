@@ -1,0 +1,33 @@
+pipeline {
+    agents any
+    tools {
+        go 'go-1.17'
+        docker 'docker-version'
+    }
+
+    environment {
+        GO111MODULE='on'
+    }
+
+    stages {
+        stage('Development') {
+            steps {
+                git 'url'
+                sh 'go test ./...'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                git 'URL'
+                sh 'go build .'
+            }
+        }
+
+        stage{'RUN'} {
+            steps {
+                sh 'cd /var/lib/jenkins/workspace/go-full-pipeline && go-webapp-sample &'
+            }
+        }
+    }
+}
